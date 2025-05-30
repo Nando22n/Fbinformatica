@@ -1,0 +1,381 @@
+/* style.css */
+:root {
+  --primary-color: #4ade80; /* Green from your logo */
+  --secondary-color: #a5b4fc; /* Light purple/blue */
+  --accent-color: #60a5fa; /* A brighter blue for accents if needed */
+  --background-dark: #121221;
+  --background-medium: #1e1e2f;
+  --background-light: #283046;
+  --text-light: #e0e0e0;
+  --text-dark: #111827; /* For light backgrounds if you ever use them */
+  --card-background: rgba(20, 20, 30, 0.95); /* Slightly less opaque for depth */
+  --font-sans: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Keep existing or try 'Poppins', 'Montserrat', 'Roboto' from Google Fonts */
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.6);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.7);
+  --shadow-lg: 0 8px 25px rgba(0,0,0,0.8);
+  --border-radius-sm: 8px;
+  --border-radius-md: 15px;
+}
+
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--background-medium); /* Fallback if video fails */
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+video#video-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0.07; /* Reduced opacity for better text legibility */
+  filter: blur(2px); /* Optional: blur for more subtlety */
+}
+
+header {
+  text-align: center;
+  padding: 40px 20px; /* Increased padding */
+  background-color: rgba(18, 18, 33, 0.85); /* Slightly transparent */
+  backdrop-filter: blur(5px); /* Glassmorphism effect for modern browsers */
+  box-shadow: var(--shadow-md);
+  position: relative; /* For z-index if needed */
+  z-index: 10;
+}
+
+header img {
+  max-width: 130px; /* Slightly larger */
+  margin-bottom: 15px;
+  filter: drop-shadow(0 0 12px var(--primary-color));
+  transition: transform 0.3s ease;
+}
+header img:hover {
+  transform: scale(1.05);
+}
+
+header h1 {
+  font-size: clamp(2rem, 5vw, 3rem); /* Responsive font size */
+  color: var(--primary-color);
+  font-weight: 700; /* Bolder */
+}
+
+header p {
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  color: var(--secondary-color);
+  margin-top: 5px;
+}
+
+.menu-principal {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Vertically align items */
+  background: rgba(15, 15, 31, 0.9); /* Slightly transparent */
+  backdrop-filter: blur(5px);
+  padding: 15px;
+  gap: 35px; /* Increased gap */
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  box-shadow: var(--shadow-sm);
+  flex-wrap: wrap; /* Allow wrapping on smaller screens before media query */
+}
+
+.menu-principal a {
+  color: var(--secondary-color);
+  font-weight: 600; /* Bolder */
+  text-decoration: none;
+  font-size: 1.1rem;
+  padding: 8px 12px; /* Add some padding for better click targets */
+  border-radius: var(--border-radius-sm);
+  transition: color 0.3s ease, background-color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.menu-principal a:hover,
+.menu-principal a.active { /* Style for active page link */
+  color: var(--primary-color);
+  text-shadow: 0 0 8px var(--primary-color);
+  background-color: rgba(74, 222, 128, 0.1); /* Subtle background on hover */
+}
+
+main {
+  max-width: 960px; /* Slightly wider */
+  margin: 50px auto;
+  padding: 40px; /* More padding */
+  background: var(--card-background);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-lg);
+}
+
+main.inicio { /* Specific styling for homepage main */
+  background: transparent; /* Make homepage main transparent if desired for full video effect */
+  box-shadow: none;
+  text-align: center; /* Center homepage content */
+  padding-top: 80px; /* More space from nav */
+  padding-bottom: 80px;
+}
+main.inicio h2 {
+  font-size: clamp(2.2rem, 6vw, 3.5rem);
+}
+main.inicio p {
+  font-size: clamp(1.1rem, 3vw, 1.4rem);
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+h2 {
+  color: var(--primary-color);
+  margin-bottom: 25px; /* More space */
+  font-size: clamp(1.8rem, 4vw, 2.5rem); /* Responsive heading */
+  border-bottom: 2px solid var(--primary-color); /* Accent line */
+  padding-bottom: 10px;
+  display: inline-block; /* So border only spans text width */
+}
+
+p, li {
+  margin-bottom: 15px;
+  font-size: 1.05rem;
+  color: var(--text-light);
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+a:hover {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
+/* Button Styles */
+.btn {
+  display: inline-block;
+  padding: 12px 25px;
+  background-color: var(--primary-color);
+  color: var(--background-dark);
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: var(--border-radius-sm);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+.btn:hover {
+  background-color: #3bb173; /* Slightly darker green */
+  transform: translateY(-2px);
+  color: var(--background-dark); /* Ensure text color remains on hover */
+  text-decoration: none;
+}
+.btn i { /* Icon inside button */
+    margin-right: 8px;
+}
+
+.whatsapp { /* Existing class, ensure it uses btn styles or similar */
+  display: inline-block;
+  padding: 12px 25px;
+  background-color: #25D366; /* WhatsApp Green */
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: var(--border-radius-sm);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-top: 20px; /* Add some margin if needed */
+}
+.whatsapp:hover {
+  background-color: #1DAE52; /* Darker WhatsApp Green */
+  transform: translateY(-2px);
+  color: white;
+  text-decoration: none;
+}
+.whatsapp i {
+  margin-right: 8px;
+}
+
+
+/* Card Styles (for services, products) */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.card {
+  background: var(--background-medium);
+  border-radius: var(--border-radius-md);
+  padding: 25px;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex; /* For aligning items if needed */
+  flex-direction: column;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+.card img.card-img-top { /* For images at the top of cards */
+  width: 100%;
+  height: 180px; /* Adjust as needed */
+  object-fit: cover;
+  border-radius: var(--border-radius-sm) var(--border-radius-sm) 0 0; /* Rounded top corners */
+  margin-bottom: 15px;
+}
+.card h3 {
+  color: var(--primary-color);
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+.card p {
+  font-size: 0.95rem; /* Slightly smaller text in cards */
+  flex-grow: 1; /* Makes paragraphs fill space if cards have varying text length */
+}
+.card .btn { /* Button inside a card */
+  margin-top: auto; /* Pushes button to the bottom if card is flex column */
+}
+
+
+ul {
+  list-style: none; /* Remove default bullets */
+  padding-left: 0;
+}
+ul li {
+  padding-left: 25px; /* Space for custom bullet/icon */
+  position: relative;
+  margin-bottom: 12px;
+}
+ul li::before { /* Custom bullet */
+  content: '\f00c'; /* Font Awesome check icon */
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  color: var(--primary-color);
+  position: absolute;
+  left: 0;
+  top: 3px; /* Adjust vertical alignment */
+}
+
+/* Contact Page Specific */
+.contact-info p {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}
+.contact-info p strong {
+  color: var(--secondary-color);
+}
+.contact-info p a {
+  color: var(--primary-color);
+}
+.contact-info p a:hover {
+  text-decoration: underline;
+}
+
+.map-container {
+  margin-top: 40px; /* Increased margin */
+  border-radius: var(--border-radius-md);
+  overflow: hidden; /* Ensures iframe respects border-radius */
+  box-shadow: var(--shadow-lg);
+}
+.map-container iframe {
+  display: block; /* Removes any default bottom spacing on iframe */
+  border: none; /* Remove default border */
+  width: 100%;
+  height: 350px;
+}
+
+
+footer {
+  text-align: center;
+  padding: 30px 15px; /* Increased padding */
+  background-color: rgba(18, 18, 33, 0.9); /* Slightly transparent */
+  backdrop-filter: blur(5px);
+  color: var(--secondary-color);
+  margin-top: 50px; /* Space above footer */
+  font-size: 0.9rem;
+  position: relative; /* For z-index if needed */
+  z-index: 10;
+}
+footer p {
+    margin-bottom: 5px;
+}
+.social-links { /* For social media icons in footer */
+    margin-top: 10px;
+}
+.social-links a {
+    color: var(--secondary-color);
+    font-size: 1.5rem;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+.social-links a:hover {
+    color: var(--primary-color);
+}
+
+
+/* Responsividad para celulares */
+@media (max-width: 768px) { /* Adjusted breakpoint */
+  header h1 {
+    font-size: 2rem;
+  }
+  header p {
+    font-size: 1.1rem;
+  }
+  .menu-principal {
+    flex-direction: column; /* Stack nav items */
+    gap: 10px;
+    padding: 10px;
+  }
+  .menu-principal a {
+    font-size: 1rem;
+    display: block; /* Make links full width for easier tapping */
+    text-align: center;
+    width: 100%;
+  }
+  main {
+    margin: 30px 15px; /* Adjusted margin for smaller screens */
+    padding: 25px; /* Adjusted padding */
+    border-radius: var(--border-radius-sm);
+  }
+  h2 {
+    font-size: 1.8rem;
+  }
+  .card-container {
+    grid-template-columns: 1fr; /* Single column for cards on small screens */
+  }
+}
+
+@media (max-width: 480px) { /* Even smaller screens */
+  header {
+    padding: 25px 10px;
+  }
+  header img {
+    max-width: 100px;
+  }
+  header h1 {
+    font-size: 1.7rem;
+  }
+  header p {
+    font-size: 0.9rem;
+  }
+  main {
+    padding: 20px;
+  }
+   h2 {
+    font-size: 1.6rem;
+  }
+  .btn, .whatsapp {
+    padding: 10px 20px;
+    font-size: 0.95rem;
+  }
+}

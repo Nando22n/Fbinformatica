@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>Contacto - FB Informática</title>
+  <meta property="og:title" content="Contacto - FB Informática">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <video id="video-bg" autoplay loop muted poster="assets/images/video_poster.png">
+    <source src="fondo.mp4" type="video/mp4" />
+  </video>
+
+  <header>
+    <img src="logo.png" alt="Logo FB Informática" />
+    <h1>FB Informática</h1>
+    <p>Soluciones técnicas, confiables y rápidas en Rivera, Uruguay</p>
+  </header>
+
+  <nav class="menu-principal">
+    <a href="index.html">Inicio</a>
+    <a href="nosotros.html">Nosotros</a>
+    <a href="servicios.html">Servicios</a>
+    <a href="productos.html">Productos</a>
+    <a href="testimonios.html">Reseñas</a>
+    <a href="contacto.html" class="active">Contacto</a>
+  </nav>
+
+  <main>
+    <h2>Ponete en Contacto</h2>
+    <p style="margin-bottom: 30px;">Estamos listos para ayudarte. Envianos tu consulta o visitanos.</p>
+
+    <div class="contact-container" style="display: flex; flex-wrap: wrap; gap: 30px;">
+        <div class="contact-info" style="flex: 1; min-width: 280px;">
+            <h3>Nuestra Ubicación y Datos</h3>
+            <p><i class="fas fa-map-marker-alt" style="color:var(--primary-color); margin-right: 8px;"></i><strong>Dirección:</strong> Calle Artigas 1647, Rivera, Uruguay</p>
+            <p><i class="fas fa-phone" style="color:var(--primary-color); margin-right: 8px;"></i><strong>Teléfono:</strong> <a href="tel:+59892236811">092 236 811</a></p>
+            <p><i class="fas fa-envelope" style="color:var(--primary-color); margin-right: 8px;"></i><strong>Email:</strong> <a href="mailto:contacto@fbinformatica.uy">contacto@fbinformatica.uy</a></p>
+            <p><i class="fab fa-whatsapp" style="color:var(--primary-color); margin-right: 8px;"></i><strong>WhatsApp:</strong> <a href="https://wa.me/59892236811" target="_blank">Escribinos por WhatsApp (+598 92 236 811)</a></p>
+            
+            <h3 style="margin-top: 30px;">Horario de Atención</h3>
+            <p><i class="fas fa-clock" style="color:var(--primary-color); margin-right: 8px;"></i><strong>Lunes a Viernes:</strong> 09:00 - 12:30 y 14:30 - 19:00</p>
+            <p><i class="fas fa-clock" style="color:var(--primary-color); margin-right: 8px;"></i><strong>Sábados:</strong> 09:00 - 13:00</p>
+            {/* Add your actual opening hours here */}
+        </div>
+
+        <div class="contact-action" style="flex: 1; min-width: 280px; text-align: center;">
+             <img src="assets/images/contacto_placeholder.png" alt="Contacto FB Informática" style="max-width: 100%; height: auto; border-radius: var(--border-radius-md); margin-bottom: 20px;">
+            <a class="btn whatsapp" href="https://wa.me/59892236811" target="_blank" style="display: block; max-width: 300px; margin: 0 auto;">
+              <i class="fab fa-whatsapp"></i> ¡Chatea con Nosotros Ahora!
+            </a>
+        </div>
+    </div>
+
+    <div class="map-container"> {/* Use class for styling */}
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3390.0000000000005!2d-55.55000000000001!3d-30.900000000000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCsDU0JzAwLjAiUyA1NcKwMzMnMDAuMCJX!5e0!3m2!1ses-419!2suy!4v1620000000000!5m2!1ses-419!2suy" /* REPLACE THIS with your actual Google Maps embed src */
+        width="100%" /* Moved to CSS */
+        height="350" /* Moved to CSS */
+        style="border:0;" /* Basic style inline, others in CSS */
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; <script>document.write(new Date().getFullYear())</script> FB Informática. Todos los derechos reservados.</p>
+    <div class="social-links">
+        <a href="https://instagram.com/fbinformaticauy" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/59892236811" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    </div>
+  </footer>
+  <script> /* Add active link script */ </script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>FB Informática - Soluciones Técnicas Confiables en Rivera</title>
+  <meta property="og:title" content="FB Informática - Soluciones Técnicas Confiables en Rivera">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <video id="video-bg" autoplay loop muted poster="assets/images/video_poster.png"> {/* Add a poster image */}
+    <source src="fondo.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <header>
+    <img src="logo.png" alt="Logo FB Informática" />
+    <h1>FB Informática</h1>
+    <p>Soluciones técnicas, confiables y rápidas en Rivera, Uruguay</p>
+  </header>
+
+  <nav class="menu-principal">
+    <a href="index.html" class="active">Inicio</a> 
+    <a href="nosotros.html">Nosotros</a>
+    <a href="servicios.html">Servicios</a>
+    <a href="productos.html">Productos</a>
+    <a href="testimonios.html">Reseñas</a>
+    <a href="contacto.html">Contacto</a>
+  </nav>
+
+  <main class="inicio"> 
+    <section class="hero-section">
+      <h2>Bienvenido a FB Informática</h2>
+      <p>Tu aliado tecnológico en Rivera. Trabajamos con dedicación, honestidad y experiencia para que tus equipos funcionen a la perfección. Asesoramiento real y personalizado. ¡De frente y sin vueltas!</p>
+      <a href="servicios.html" class="btn"><i class="fas fa-cogs"></i> Ver Nuestros Servicios</a>
+      <a href="contacto.html" class="btn whatsapp" style="margin-left: 15px;"><i class="fab fa-whatsapp"></i> Contáctanos Ahora</a>
+    </section>
+
+    <section class="features-section" style="margin-top: 60px; background: var(--card-background); padding: 40px; border-radius: var(--border-radius-md); box-shadow: var(--shadow-lg);">
+        <h2 style="text-align: center; display: block; border-bottom: none; margin-bottom: 40px;">¿Por qué elegirnos?</h2>
+        <div class="card-container" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+            <div class="card" style="text-align: center;">
+                <i class="fas fa-tools fa-3x" style="color: var(--primary-color); margin-bottom: 15px;"></i>
+                <h3>Experiencia Comprobada</h3>
+                <p>Años de experiencia resolviendo problemas informáticos complejos y sencillos.</p>
+            </div>
+            <div class="card" style="text-align: center;">
+                <i class="fas fa-handshake fa-3x" style="color: var(--primary-color); margin-bottom: 15px;"></i>
+                <h3>Servicio Honesto</h3>
+                <p>Diagnósticos claros y presupuestos transparentes. Sin sorpresas.</p>
+            </div>
+            <div class="card" style="text-align: center;">
+                <i class="fas fa-bolt fa-3x" style="color: var(--primary-color); margin-bottom: 15px;"></i>
+                <h3>Respuesta Rápida</h3>
+                <p>Entendemos la urgencia y trabajamos para devolverte tus equipos lo antes posible.</p>
+            </div>
+        </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; <script>document.write(new Date().getFullYear())</script> FB Informática. Desarrollado por Fernando Bichinque.</p>
+    <div class="social-links">
+        <a href="https://instagram.com/fbinformaticauy" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/59892236811" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+       
+    </div>
+  </footer>
+  <script>
+    // Simple script to add 'active' class to current nav link
+    document.addEventListener('DOMContentLoaded', function() {
+      const links = document.querySelectorAll('.menu-principal a');
+      const currentUrl = window.location.href;
+      links.forEach(link => {
+        if (link.href === currentUrl) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active'); // Ensure only one is active
+        }
+      });
+    });
+  </script>
+</body>
+</html>
