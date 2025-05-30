@@ -1,14 +1,26 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contacto - FB Informática</title>
-  <meta property="og:title" content="Contacto - FB Informática">
-  <link rel="stylesheet" href="style.css" />
+  <meta name="description" content="Contacta con FB Informática en Rivera, Uruguay. Encuentra nuestra dirección, teléfono, email y horario de atención. Soluciones técnicas confiables.">
+  <meta name="keywords" content="contacto informatica rivera, direccion fb informatica, telefono fb informatica, servicio tecnico rivera">
+  <meta name="author" content="FB Informática">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.fbinformatica.uy/contacto.html"> <meta property="og:title" content="Contacto - FB Informática">
+  <meta property="og:description" content="Encuentra cómo contactar a FB Informática en Rivera para servicio técnico y soluciones informáticas.">
+  <meta property="og:image" content="https://www.fbinformatica.uy/assets/images/fb_informatica_og_image.jpg"> <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://www.fbinformatica.uy/contacto.html"> <meta property="twitter:title" content="Contacto - FB Informática">
+  <meta property="twitter:description" content="Encuentra cómo contactar a FB Informática en Rivera para servicio técnico y soluciones informáticas.">
+  <meta property="twitter:image" content="https://www.fbinformatica.uy/assets/images/fb_informatica_og_image.jpg"> <link rel="icon" href="assets/images/favicon.png" type="image/png"> <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
   <video id="video-bg" autoplay loop muted poster="assets/images/video_poster.png">
     <source src="fondo.mp4" type="video/mp4" />
+    Tu navegador no soporta la etiqueta de video.
   </video>
 
   <header>
@@ -52,12 +64,12 @@
         </div>
     </div>
 
-    <div class="map-container"> 
+    <div class="map-container">
       <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3390.0000000000005!2d-55.55000000000001!3d-30.900000000000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCsDU0JzAwLjAiUyA1NcKwMzMnMDAuMCJX!5e0!3m2!1ses-419!2suy!4v1620000000000!5m2!1ses-419!2suy" /* REPLACE THIS with your actual Google Maps embed src */
-        width="100%" /* Moved to CSS */
-        height="350" /* Moved to CSS */
-        style="border:0;" /* Basic style inline, others in CSS */
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3371.329579139598!2d-55.55009198482507!3d-30.90561998099113!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a9febc95a7d3bf%3A0x8d476e5f906b3b4b!2sPlaza%20Internacional!5e1!3m2!1ses-419!2suy!4v1622308883399!5m2!1ses-419!2suy" 
+        width="100%"
+        height="350"
+        style="border:0;"
         allowfullscreen=""
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade">
@@ -66,12 +78,28 @@
   </main>
 
   <footer>
-    <p>&copy; <script>document.write(new Date().getFullYear())</script> FB Informática. Todos los derechos reservados.</p>
+    <p>© <script>document.write(new Date().getFullYear())</script> FB Informática. Todos los derechos reservados.</p>
     <div class="social-links">
         <a href="https://instagram.com/fbinformaticauy" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
         <a href="https://wa.me/59892236811" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
     </div>
   </footer>
-  <script> /* Add active link script */ </script>
+  <script>
+    // Script para añadir la clase 'active' al enlace de navegación actual
+    document.addEventListener('DOMContentLoaded', function() {
+      const links = document.querySelectorAll('.menu-principal a');
+      const currentUrl = window.location.href;
+      links.forEach(link => {
+        // Compara la parte final de la URL para hacerla más robusta (index.html vs /)
+        const linkPath = new URL(link.href).pathname.split('/').pop();
+        const currentPath = new URL(currentUrl).pathname.split('/').pop();
+        if (linkPath === currentPath || (linkPath === 'index.html' && currentPath === '')) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    });
+  </script>
 </body>
 </html>
