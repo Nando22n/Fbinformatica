@@ -1,20 +1,52 @@
-/* style.css */
+/* style.css Modernizado */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap'); /* Opcional: Fuente moderna Poppins */
+
 :root {
-  --primary-color: #4ade80; /* Green from your logo */
-  --secondary-color: #a5b4fc; /* Light purple/blue */
-  --accent-color: #60a5fa; /* A brighter blue for accents if needed */
-  --background-dark: #121221;
-  --background-medium: #1e1e2f;
-  --background-light: #283046;
-  --text-light: #e0e0e0;
-  --text-dark: #111827; /* For light backgrounds if you ever use them */
-  --card-background: rgba(20, 20, 30, 0.95); /* Slightly less opaque for depth */
-  --font-sans: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Keep existing or try 'Poppins', 'Montserrat', 'Roboto' from Google Fonts */
-  --shadow-sm: 0 2px 8px rgba(0,0,0,0.6);
-  --shadow-md: 0 4px 12px rgba(0,0,0,0.7);
-  --shadow-lg: 0 8px 25px rgba(0,0,0,0.8);
+  /* Paleta Principal Moderna */
+  --neon-blue: #00DFFF; /* Azul neón principal, vibrante y eléctrico */
+  --vibrant-purple: #C026D3; /* Morado vibrante, complementa el logo y sirve para acentos */
+  --deep-purple: #7B2CBF;   /* Un morado más oscuro para fondos o elementos secundarios */
+  --pure-white: #FFFFFF;
+  --text-primary: #F0F4F8;  /* Blanco ligeramente cálido para mejor lectura */
+  --text-secondary: #BCC8D8; /* Gris claro para texto menos importante */
+
+  /* Fondos */
+  --bg-dark-primary: #0A0A1A;     /* Muy oscuro, casi negro con un toque azul/morado profundo */
+  --bg-dark-secondary: #14142B;   /* Azul/morado oscuro, para tarjetas o secciones */
+  --bg-glass-effect: rgba(20, 20, 43, 0.75);      /* Para efecto "cristal" (glassmorphism) */
+  --bg-glass-effect-hover: rgba(30, 30, 53, 0.85); /* Efecto cristal en hover */
+
+  /* Sombras con Tinte (para un look más integrado) */
+  --shadow-color-neon-blue: rgba(0, 223, 255, 0.35);
+  --shadow-color-vibrant-purple: rgba(192, 38, 211, 0.3);
+  --shadow-sm: 0 2px 8px var(--shadow-color-vibrant-purple);
+  --shadow-md: 0 5px 15px var(--shadow-color-neon-blue);
+  --shadow-lg: 0 10px 30px var(--shadow-color-neon-blue);
+  
+  /* Efectos de Brillo (Glow) */
+  --glow-neon-blue: 0 0 4px var(--neon-blue), 0 0 8px var(--neon-blue), 0 0 12px var(--neon-blue);
+  --glow-vibrant-purple: 0 0 4px var(--vibrant-purple), 0 0 8px var(--vibrant-purple), 0 0 12px var(--vibrant-purple);
+
+  /* Radios de Borde (ya estaban bien) */
   --border-radius-sm: 8px;
   --border-radius-md: 15px;
+
+  /* Fuente (Segoe UI es buena, Poppins es una alternativa moderna) */
+  --font-sans: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  /* Variables mapeadas para facilitar la transición desde el CSS original */
+  --primary-color-theme: var(--neon-blue);
+  --secondary-color-theme: var(--vibrant-purple);
+  --accent-color-theme: var(--deep-purple);
+  --text-light-theme: var(--text-primary);
+  --card-background-theme: var(--bg-glass-effect);
+  --background-dark-theme: var(--bg-dark-primary);
+  --background-medium-theme: var(--bg-dark-secondary);
+
+  /* Colores RGB para usar con opacidad */
+  --neon-blue-rgb: 0, 223, 255;
+  --vibrant-purple-rgb: 192, 38, 211;
+  --pure-white-rgb: 255, 255, 255;
 }
 
 * {
@@ -26,9 +58,10 @@
 
 body {
   font-family: var(--font-sans);
-  background-color: var(--background-medium); /* Fallback if video fails */
-  color: var(--text-light);
-  line-height: 1.6;
+  background-color: var(--background-dark-theme);
+  color: var(--text-light-theme);
+  line-height: 1.7;
+  overflow-x: hidden; /* Prevenir scroll horizontal accidental */
 }
 
 video#video-bg {
@@ -39,343 +72,454 @@ video#video-bg {
   height: 100vh;
   object-fit: cover;
   z-index: -1;
-  opacity: 0.07; /* Reduced opacity for better text legibility */
-  filter: blur(2px); /* Optional: blur for more subtlety */
+  opacity: 0.1; /* Un poco más visible si el video tiene colores interesantes */
+  filter: blur(4px) saturate(1.1); /* Más desenfoque y un poco de saturación */
 }
 
 header {
   text-align: center;
-  padding: 40px 20px; /* Increased padding */
-  background-color: rgba(18, 18, 33, 0.85); /* Slightly transparent */
-  backdrop-filter: blur(5px); /* Glassmorphism effect for modern browsers */
+  padding: 50px 20px; /* Más padding vertical */
+  background-color: var(--bg-glass-effect);
+  backdrop-filter: blur(10px); /* Efecto cristal más pronunciado */
   box-shadow: var(--shadow-md);
-  position: relative; /* For z-index if needed */
+  position: relative;
   z-index: 10;
+  border-bottom: 1px solid rgba(var(--neon-blue-rgb), 0.25); /* Borde sutil neón */
 }
 
 header img {
-  max-width: 130px; /* Slightly larger */
-  margin-bottom: 15px;
-  filter: drop-shadow(0 0 12px var(--primary-color));
-  transition: transform 0.3s ease;
+  max-width: 140px; /* Un poco más grande */
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 15px rgba(var(--pure-white-rgb), 0.5)); /* Glow blanco sutil para el logo */
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Transición con rebote */
 }
 header img:hover {
-  transform: scale(1.05);
+  transform: scale(1.15) rotate(5deg); /* Efecto más dinámico en hover */
 }
 
 header h1 {
-  font-size: clamp(2rem, 5vw, 3rem); /* Responsive font size */
-  color: var(--primary-color);
-  font-weight: 700; /* Bolder */
+  font-size: clamp(2.2rem, 6vw, 3.5rem);
+  color: var(--primary-color-theme);
+  font-weight: 700;
+  text-shadow: var(--glow-neon-blue); /* Aplicar glow */
 }
 
 header p {
-  font-size: clamp(1rem, 2.5vw, 1.3rem);
-  color: var(--secondary-color);
-  margin-top: 5px;
+  font-size: clamp(1.1rem, 2.8vw, 1.4rem);
+  color: var(--text-secondary);
+  margin-top: 10px;
 }
 
 .menu-principal {
   display: flex;
   justify-content: center;
-  align-items: center; /* Vertically align items */
-  background: rgba(15, 15, 31, 0.9); /* Slightly transparent */
-  backdrop-filter: blur(5px);
-  padding: 15px;
-  gap: 35px; /* Increased gap */
+  align-items: center;
+  background: var(--bg-glass-effect);
+  backdrop-filter: blur(12px);
+  padding: 18px 20px;
+  gap: 30px;
   position: sticky;
   top: 0;
   z-index: 999;
   box-shadow: var(--shadow-sm);
-  flex-wrap: wrap; /* Allow wrapping on smaller screens before media query */
+  border-bottom: 1px solid rgba(var(--vibrant-purple-rgb), 0.2);
+  flex-wrap: wrap;
 }
 
 .menu-principal a {
-  color: var(--secondary-color);
-  font-weight: 600; /* Bolder */
+  color: var(--text-primary);
+  font-weight: 600;
   text-decoration: none;
-  font-size: 1.1rem;
-  padding: 8px 12px; /* Add some padding for better click targets */
+  font-size: 1.15rem;
+  padding: 10px 20px;
   border-radius: var(--border-radius-sm);
-  transition: color 0.3s ease, background-color 0.3s ease, text-shadow 0.3s ease;
+  transition: color 0.3s ease, background-color 0.3s ease, text-shadow 0.3s ease, transform 0.2s ease;
+  position: relative;
 }
 
-.menu-principal a:hover,
-.menu-principal a.active { /* Style for active page link */
-  color: var(--primary-color);
-  text-shadow: 0 0 8px var(--primary-color);
-  background-color: rgba(74, 222, 128, 0.1); /* Subtle background on hover */
+.menu-principal a:hover {
+  color: var(--neon-blue);
+  background-color: rgba(var(--neon-blue-rgb), 0.15);
+  text-shadow: 0 0 8px var(--neon-blue);
+  transform: translateY(-3px);
 }
+
+.menu-principal a.active {
+  color: var(--vibrant-purple);
+  background-color: rgba(var(--vibrant-purple-rgb), 0.2);
+  text-shadow: var(--glow-vibrant-purple);
+  font-weight: 700;
+}
+
+.menu-principal a::after { /* Efecto de línea inferior moderna */
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0px; /* Pegado al borde inferior del padding */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--neon-blue);
+  transition: width 0.35s ease-in-out;
+  border-radius: 1px;
+}
+.menu-principal a:hover::after {
+  width: 75%;
+}
+.menu-principal a.active::after {
+  background-color: var(--vibrant-purple);
+  width: 75%;
+}
+
 
 main {
-  max-width: 960px; /* Slightly wider */
-  margin: 50px auto;
-  padding: 40px; /* More padding */
-  background: var(--card-background);
+  max-width: 1000px;
+  margin: 70px auto;
+  padding: 45px;
+  background: var(--card-background-theme);
   border-radius: var(--border-radius-md);
   box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(var(--vibrant-purple-rgb), 0.15);
 }
 
-main.inicio { /* Specific styling for homepage main */
-  background: transparent; /* Make homepage main transparent if desired for full video effect */
+main.inicio {
+  background: transparent;
   box-shadow: none;
-  text-align: center; /* Center homepage content */
-  padding-top: 80px; /* More space from nav */
+  text-align: center;
+  padding-top: 80px;
   padding-bottom: 80px;
+  border: none;
 }
 main.inicio h2 {
-  font-size: clamp(2.2rem, 6vw, 3.5rem);
+  font-size: clamp(2.5rem, 6.5vw, 4rem); /* Más grande y llamativo */
+  color: var(--pure-white);
+  border-bottom: none; /* Sin borde inferior para el h2 principal del hero */
+  text-shadow: var(--glow-neon-blue), 0 0 30px rgba(var(--vibrant-purple-rgb),0.7); /* Glow combinado */
 }
 main.inicio p {
-  font-size: clamp(1.1rem, 3vw, 1.4rem);
-  max-width: 700px;
+  font-size: clamp(1.2rem, 3.2vw, 1.5rem);
+  max-width: 750px;
   margin-left: auto;
   margin-right: auto;
+  color: var(--text-primary);
+  line-height: 1.8;
 }
 
-
-h2 {
-  color: var(--primary-color);
-  margin-bottom: 25px; /* More space */
-  font-size: clamp(1.8rem, 4vw, 2.5rem); /* Responsive heading */
-  border-bottom: 2px solid var(--primary-color); /* Accent line */
-  padding-bottom: 10px;
-  display: inline-block; /* So border only spans text width */
+h2 { /* Títulos de sección generales */
+  color: var(--primary-color-theme);
+  margin-bottom: 35px;
+  font-size: clamp(2rem, 4.8vw, 3rem);
+  padding-bottom: 15px;
+  display: inline-block;
+  border-bottom: 3px solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(90deg, var(--neon-blue), var(--vibrant-purple)); /* Gradiente en borde */
+  text-shadow: 0 0 8px rgba(var(--neon-blue-rgb), 0.4);
 }
 
 p, li {
-  margin-bottom: 15px;
-  font-size: 1.05rem;
-  color: var(--text-light);
+  margin-bottom: 18px;
+  font-size: 1.05rem; /* Ajustar si Poppins se ve muy grande/pequeña */
+  color: var(--text-light-theme);
 }
 
-a {
-  color: var(--accent-color);
+a { /* Enlaces de texto generales */
+  color: var(--secondary-color-theme);
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 a:hover {
-  color: var(--primary-color);
-  text-decoration: underline;
+  color: var(--primary-color-theme);
+  text-decoration: none;
+  text-shadow: 0 0 5px var(--neon-blue);
 }
 
-/* Button Styles */
+/* Botones */
 .btn {
   display: inline-block;
-  padding: 12px 25px;
-  background-color: var(--primary-color);
-  color: var(--background-dark);
-  font-weight: bold;
+  padding: 15px 30px; /* Más padding */
+  font-weight: 700; /* Más bold */
   text-decoration: none;
   border-radius: var(--border-radius-sm);
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   text-align: center;
-  border: none;
+  border: 2px solid transparent;
   cursor: pointer;
+  background-color: var(--primary-color-theme);
+  color: var(--bg-dark-primary); /* Texto oscuro para contraste */
+  box-shadow: 0 0 10px rgba(var(--neon-blue-rgb), 0.6), inset 0 0 8px rgba(var(--pure-white-rgb),0.2);
+  letter-spacing: 0.5px;
 }
 .btn:hover {
-  background-color: #3bb173; /* Slightly darker green */
-  transform: translateY(-2px);
-  color: var(--background-dark); /* Ensure text color remains on hover */
+  background-color: var(--secondary-color-theme);
+  color: var(--pure-white);
+  transform: translateY(-4px) scale(1.05); /* Efecto más pronunciado */
+  box-shadow: 0 0 15px rgba(var(--vibrant-purple-rgb), 0.7), inset 0 0 10px rgba(var(--pure-white-rgb),0.3);
   text-decoration: none;
 }
-.btn i { /* Icon inside button */
-    margin-right: 8px;
+.btn i {
+  margin-right: 12px;
 }
 
-.whatsapp { /* Existing class, ensure it uses btn styles or similar */
+/* Botón secundario/outline */
+.btn-secondary {
+  background-color: transparent;
+  color: var(--primary-color-theme);
+  border: 2px solid var(--primary-color-theme);
+  box-shadow: none;
+}
+.btn-secondary:hover {
+  background-color: rgba(var(--neon-blue-rgb), 0.15);
+  color: var(--primary-color-theme);
+  border-color: var(--primary-color-theme);
+  box-shadow: 0 0 12px rgba(var(--neon-blue-rgb), 0.5);
+}
+
+.whatsapp { /* Botón de WhatsApp */
   display: inline-block;
-  padding: 12px 25px;
-  background-color: #25D366; /* WhatsApp Green */
-  color: white;
-  font-weight: bold;
+  padding: 15px 30px;
+  background-color: #25D366;
+  color: var(--pure-white);
+  font-weight: 700;
   text-decoration: none;
   border-radius: var(--border-radius-sm);
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  margin-top: 20px; /* Add some margin if needed */
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  margin-top: 20px;
+  border: 2px solid #25D366;
+  box-shadow: 0 0 10px rgba(37, 211, 102, 0.6);
+  letter-spacing: 0.5px;
 }
 .whatsapp:hover {
-  background-color: #1DAE52; /* Darker WhatsApp Green */
-  transform: translateY(-2px);
-  color: white;
+  background-color: #1DAE52;
+  transform: translateY(-4px) scale(1.05);
+  color: var(--pure-white);
   text-decoration: none;
+  box-shadow: 0 0 15px rgba(29, 174, 82, 0.7);
 }
 .whatsapp i {
-  margin-right: 8px;
+  margin-right: 12px;
 }
 
 
-/* Card Styles (for services, products) */
+/* Tarjetas (Cards) */
 .card-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
-  gap: 30px;
-  margin-top: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); /* Un poco más anchas */
+  gap: 35px;
+  margin-top: 40px;
 }
 
 .card {
-  background: var(--background-medium);
+  background: var(--card-background-theme);
   border-radius: var(--border-radius-md);
-  padding: 25px;
-  box-shadow: var(--shadow-sm);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: flex; /* For aligning items if needed */
+  padding: 30px;
+  box-shadow: var(--shadow-md);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, background-color 0.35s ease, border-color 0.35s ease;
+  display: flex;
   flex-direction: column;
+  border: 1px solid rgba(var(--vibrant-purple-rgb), 0.25); /* Borde morado sutil */
 }
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-10px) scale(1.03); /* Hover más notable */
+  box-shadow: var(--shadow-lg);
+  background-color: var(--bg-glass-effect-hover);
+  border-color: rgba(var(--neon-blue-rgb), 0.4); /* Borde neón en hover */
 }
-.card img.card-img-top { /* For images at the top of cards */
+.card img.card-img-top {
   width: 100%;
-  height: 180px; /* Adjust as needed */
+  height: 190px; /* Un poco más altas */
   object-fit: cover;
-  border-radius: var(--border-radius-sm) var(--border-radius-sm) 0 0; /* Rounded top corners */
-  margin-bottom: 15px;
+  border-radius: var(--border-radius-sm) var(--border-radius-sm) 0 0;
+  margin-bottom: 20px;
+  filter: brightness(0.95) contrast(1.05); /* Pequeño ajuste a las imágenes */
 }
 .card h3 {
-  color: var(--primary-color);
-  margin-bottom: 10px;
-  font-size: 1.5rem;
+  color: var(--primary-color-theme); /* Azul Neón para títulos de tarjeta */
+  margin-bottom: 15px;
+  font-size: 1.7rem; /* Ligeramente más grande */
+}
+.card h3 i { /* Iconos dentro de los h3 de las tarjetas */
+  color: var(--secondary-color-theme); /* Morado para estos iconos */
+  margin-right: 10px;
+  text-shadow: 0 0 6px var(--secondary-color-theme);
 }
 .card p {
-  font-size: 0.95rem; /* Slightly smaller text in cards */
-  flex-grow: 1; /* Makes paragraphs fill space if cards have varying text length */
+  font-size: 1rem;
+  color: var(--text-secondary);
+  flex-grow: 1;
+  line-height: 1.6;
 }
-.card .btn { /* Button inside a card */
-  margin-top: auto; /* Pushes button to the bottom if card is flex column */
+.card .btn {
+  margin-top: auto; /* Empuja el botón al final */
+}
+/* Iconos generales en tarjetas (como en "¿Por qué elegirnos?") */
+.card .fa-3x, .card .fa-2x {
+    color: var(--secondary-color-theme); /* Morado vibrante */
+    margin-bottom: 20px;
+    text-shadow: var(--glow-vibrant-purple);
 }
 
 
 ul {
-  list-style: none; /* Remove default bullets */
+  list-style: none;
   padding-left: 0;
 }
 ul li {
-  padding-left: 25px; /* Space for custom bullet/icon */
+  padding-left: 30px;
   position: relative;
-  margin-bottom: 12px;
-}
-ul li::before { /* Custom bullet */
-  content: '\f00c'; /* Font Awesome check icon */
-  font-family: 'Font Awesome 6 Free';
-  font-weight: 900;
-  color: var(--primary-color);
-  position: absolute;
-  left: 0;
-  top: 3px; /* Adjust vertical alignment */
-}
-
-/* Contact Page Specific */
-.contact-info p {
-  font-size: 1.1rem;
   margin-bottom: 15px;
 }
+ul li::before { /* Icono de check personalizado */
+  content: '\f058'; /* Font Awesome check circle (más moderno que solo check) */
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900; /* Asegúrate que es solid si usas \f058 */
+  color: var(--primary-color-theme);
+  position: absolute;
+  left: 0;
+  top: 1px;
+  font-size: 1.2em; /* Un poco más grande el check */
+  text-shadow: 0 0 6px var(--primary-color-theme);
+}
+
+/* Página de Contacto */
+.contact-info p {
+  font-size: 1.1rem;
+  margin-bottom: 18px;
+  color: var(--text-light-theme);
+}
 .contact-info p strong {
-  color: var(--secondary-color);
+  color: var(--text-primary);
 }
 .contact-info p a {
-  color: var(--primary-color);
+  color: var(--primary-color-theme);
 }
 .contact-info p a:hover {
+  color: var(--secondary-color-theme);
   text-decoration: underline;
+  text-shadow: 0 0 4px var(--secondary-color-theme);
+}
+.contact-info p i.fas, .contact-info p i.fab { /* Iconos en info de contacto */
+    color: var(--secondary-color-theme); /* Morado para iconos de contacto */
+    margin-right: 15px;
+    width: 22px;
+    text-align: center;
+    text-shadow: 0 0 5px var(--secondary-color-theme);
 }
 
 .map-container {
-  margin-top: 40px; /* Increased margin */
+  margin-top: 50px;
   border-radius: var(--border-radius-md);
-  overflow: hidden; /* Ensures iframe respects border-radius */
+  overflow: hidden;
   box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(var(--neon-blue-rgb), 0.25);
 }
 .map-container iframe {
-  display: block; /* Removes any default bottom spacing on iframe */
-  border: none; /* Remove default border */
+  display: block;
+  border: none;
   width: 100%;
-  height: 350px;
+  height: 400px; /* Mapa un poco más alto */
+  filter: grayscale(20%) hue-rotate(-10deg) contrast(1.1); /* Estilo moderno sutil para el mapa */
 }
 
 
 footer {
   text-align: center;
-  padding: 30px 15px; /* Increased padding */
-  background-color: rgba(18, 18, 33, 0.9); /* Slightly transparent */
-  backdrop-filter: blur(5px);
-  color: var(--secondary-color);
-  margin-top: 50px; /* Space above footer */
-  font-size: 0.9rem;
-  position: relative; /* For z-index if needed */
+  padding: 40px 20px;
+  background-color: var(--bg-glass-effect);
+  backdrop-filter: blur(12px);
+  color: var(--text-secondary);
+  margin-top: 70px;
+  font-size: 0.95rem;
+  position: relative;
   z-index: 10;
+  border-top: 1px solid rgba(var(--vibrant-purple-rgb), 0.25);
 }
 footer p {
-    margin-bottom: 5px;
+    margin-bottom: 12px;
+    color: var(--text-primary);
 }
-.social-links { /* For social media icons in footer */
-    margin-top: 10px;
+.social-links {
+    margin-top: 18px;
 }
 .social-links a {
-    color: var(--secondary-color);
-    font-size: 1.5rem;
-    margin: 0 10px;
-    transition: color 0.3s ease;
+    color: var(--text-secondary);
+    font-size: 2rem; /* Iconos sociales más grandes */
+    margin: 0 15px;
+    transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
 }
 .social-links a:hover {
-    color: var(--primary-color);
+    transform: scale(1.25) translateY(-2px); /* Efecto de hover más dinámico */
+}
+.social-links a[aria-label="Instagram"]:hover {
+    color: #E4405F; /* Rosa de Instagram */
+    text-shadow: 0 0 10px #E4405F;
+}
+.social-links a[aria-label="WhatsApp"]:hover {
+    color: #25D366; /* Verde de WhatsApp */
+    text-shadow: 0 0 10px #25D366;
 }
 
 
-/* Responsividad para celulares */
-@media (max-width: 768px) { /* Adjusted breakpoint */
-  header h1 {
-    font-size: 2rem;
-  }
-  header p {
-    font-size: 1.1rem;
-  }
+/* Responsividad (Ajustes menores, la base ya es responsiva) */
+@media (max-width: 768px) {
+  header { padding: 40px 15px; }
+  header h1 { font-size: clamp(1.8rem, 5vw, 2.5rem); }
+  header p { font-size: clamp(1rem, 2.5vw, 1.2rem); }
+
   .menu-principal {
-    flex-direction: column; /* Stack nav items */
-    gap: 10px;
-    padding: 10px;
+    flex-direction: column;
+    gap: 12px;
+    padding: 15px;
   }
   .menu-principal a {
-    font-size: 1rem;
-    display: block; /* Make links full width for easier tapping */
+    font-size: 1.1rem; /* Mantener buen tamaño en móvil */
+    display: block;
     text-align: center;
-    width: 100%;
+    width: 90%; /* No ocupar todo el ancho, centrado */
+    margin: 0 auto;
   }
+  .menu-principal a::after { display: none; } /* Ocultar línea inferior en menú móvil si se ve mal */
+
   main {
-    margin: 30px 15px; /* Adjusted margin for smaller screens */
-    padding: 25px; /* Adjusted padding */
-    border-radius: var(--border-radius-sm);
+    margin: 40px 15px;
+    padding: 30px;
   }
+  main.inicio { padding-top: 50px; padding-bottom: 50px; }
+  main.inicio h2 { font-size: clamp(2rem, 6vw, 3rem); }
+  main.inicio p { font-size: clamp(1.1rem, 3vw, 1.3rem); }
+  
   h2 {
-    font-size: 1.8rem;
+    font-size: clamp(1.8rem, 4.5vw, 2.5rem);
+    margin-bottom: 30px;
   }
   .card-container {
-    grid-template-columns: 1fr; /* Single column for cards on small screens */
+    grid-template-columns: 1fr; /* Columna única en móviles */
+    gap: 25px;
   }
+  .card { padding: 25px; }
+  .card h3 { font-size: 1.5rem; }
+
+  .btn, .whatsapp { padding: 12px 25px; font-size: 1rem; }
+  .map-container iframe { height: 300px; }
+  footer { padding: 30px 15px; }
+  .social-links a { font-size: 1.8rem; margin: 0 10px; }
 }
 
-@media (max-width: 480px) { /* Even smaller screens */
-  header {
-    padding: 25px 10px;
-  }
-  header img {
-    max-width: 100px;
-  }
-  header h1 {
-    font-size: 1.7rem;
-  }
-  header p {
-    font-size: 0.9rem;
-  }
+@media (max-width: 480px) {
+  header { padding: 30px 10px; }
+  header img { max-width: 120px; }
+  header h1 { font-size: clamp(1.6rem, 5.5vw, 2.2rem); }
+  header p { font-size: clamp(0.9rem, 2.8vw, 1.1rem); }
+
   main {
-    padding: 20px;
+    margin: 30px 10px;
+    padding: 25px;
   }
-   h2 {
-    font-size: 1.6rem;
-  }
-  .btn, .whatsapp {
-    padding: 10px 20px;
-    font-size: 0.95rem;
-  }
+  main.inicio h2 { font-size: clamp(1.8rem, 6vw, 2.5rem); }
+  main.inicio p { font-size: clamp(1rem, 3.2vw, 1.2rem); }
+
+  h2 { font-size: clamp(1.6rem, 4.8vw, 2.2rem); }
+  .card { padding: 20px; }
+  .card h3 { font-size: 1.4rem; }
+  .btn, .whatsapp { padding: 10px 20px; font-size: 0.95rem; }
 }
